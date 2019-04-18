@@ -36,4 +36,8 @@ gulp.task('html', gulp.series(function() {
         .pipe(connect.reload());
 }));
 
-gulp.task('default', gulp.parallel('html', 'open'));
+gulp.task('watch', gulp.series(function() {
+    gulp.watch(config.paths.html, gulp.series('html'));
+}));
+
+gulp.task('default', gulp.parallel('html', 'open', 'watch'));
