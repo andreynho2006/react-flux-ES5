@@ -9,9 +9,19 @@
   "author": "andrei",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "browserify": "^16.2.3",
+    "flux": "^2.0.3",
     "gulp": "^4.0.0",
     "gulp-cli": "^2.1.0",
+    "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.7.0",
-    "gulp-open": "^3.0.1"
+    "gulp-eslint": "^5.0.0",
+    "gulp-open": "^3.0.1",
+    "jquery": "^3.4.0",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "reactfy": "^0.1.1",
+    "vinyl-source-stream": "^2.0.0"
   }
 }
