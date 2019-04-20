@@ -22,6 +22,7 @@
     "react": "^0.13.3",
     "react-router": "^0.13.3",
     "reactfy": "^0.1.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "react-dom": "^16.0.0"
   }
 }

@@ -19,6 +19,7 @@ var config = {
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap/dist/css/bootstrap.theme.min.css'
         ],
+        images: './src/images/*',
         dist: './dist',
         maineJs: './src/main.js'
     }
@@ -63,6 +64,18 @@ gulp.task('css', gulp.series(function() {
         .pipe(gulp.dest(config.paths.dist + '/css'));
 }));
 
+//Migrate images to dist folder
+// Note that I could optimize images here
+gulp.task('images', gulp.series(function() {
+    gulp.src(config.paths.images)
+        .pipe(gulp.dest(config.paths.dist + '/css'))
+        .pipe(connect.reload());
+
+        //publish favicon
+        // gulp.src('./src/favicon.ico')
+        //     .pipe(gulp.dest(config.paths.dist), { allowEmpty: true });
+}));
+
 gulp.task('lint', gulp.series(function() {
     return gulp.src(config.paths.js)
             .pipe(lint({config: 'eslint.config.json'}))
@@ -75,4 +88,4 @@ gulp.task('watch', gulp.series(function() {
     gulp.watch(config.paths.css, gulp.series('css'));
 }));
 
-gulp.task('default', gulp.parallel('html', 'js', 'css','open', 'watch'));
+gulp.task('default', gulp.parallel('html', 'js', 'css', 'lint', 'images', 'open', 'watch'));
