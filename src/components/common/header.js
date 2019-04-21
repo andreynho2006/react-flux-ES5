@@ -2,7 +2,7 @@
 
 var React = require('react');
 var Router = require("react-router")
-var link = Router.Link;
+var Link = Router.Link;
 
 var Header = React.createClass({
     render: function() {
