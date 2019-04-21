@@ -1,49 +1,40 @@
 "use strict";
 
-//this file is macking a web API by hitting hard coded data
-var authors = require("./authorData".authors);
-var _ = require("lodash");
+//This file is mocking a web API by hitting hard coded data.
+var authors = require('./authorData').authors;
+var _ = require('lodash');
 
-//this would be performed on the server in a real app. Just stubbing in.
-var _generateId = function(author){
-    return author.firstName.toLowerCase() + '-' + author.lastName.toLowerCase();
-};
-
-var _clone = function(item) {
-    return JSON.parse(JSON.stringify(item)); // return clone copy so that the item is passed by value 
+//This would be performed on the server in a real app. Just stubbing in.
+var _generateId = function(author) {
+	return author.firstName.toLowerCase() + '-' + author.lastName.toLowerCase();
 };
 
 var AuthorApi = {
-    getAllAuthors: function() {
-        return _clone(authors);
-    },
+	getAllAuthors: function() {
+		return authors;
+	},
 
-    getAuthorById: function(id) {
-        var author = _.find(authors, {id: id});
-        return _clone(author);
-    },
+	getAuthorById: function(id) {
+		return _.find(authors, {id: id});
+	},
+	
+	saveAuthor: function(author) {
+		//pretend an ajax call to web api is made here
+		console.log('Pretend this just saved the author to the DB via AJAX call...');
+		
+		//Just simulating creation here.
+		//The server would generate ids for new authors in a real app.
+		if (!author.id) {
+			author.id = _generateId(author);
+			authors.push(author);
+		}
 
-    saveAuthor: function(author) {
-        // pretend an ajax call to a web api is made here
-        console.log("Pretend this just saved the author to DB via AJAX call... ");
+		return author;
+	},
 
-        if(author.id) {
-            var existingAuthorIndex = _.indexOf(authors, {id: author.id}));
-            authors.splice(existingAuthorIndex, 1, author);
-        } else {
-            //just simulating creation here
-            // the server would generate ids, for new authors in a real app
-            // cloning so copy returned id passed by value rather than by reference
-            author.id = _generateId(author);
-            authors.push(author);
-        }
-
-        return _clone(author);
-    },
-
-    deleteAuthor: function(id) {
-        console.log("Pretend this just deleted the author from the DB via an AJAX call...");
-    }
+	deleteAuthor: function(id) {
+		console.log('Pretend this just deleted the author from the DB via an AJAX call...');
+	}
 };
 
 module.exports = AuthorApi;
