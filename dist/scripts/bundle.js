@@ -46622,11 +46622,11 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
         AuthorStore.addChangeListener(this._onChange);
     },
 
-    componentWillUnmount() {
+    componentWillUnmount: function() {
         AuthorStore.removeChangeListener(this._onChange);
     },
     
-    _onChange() {
+    _onChange: function() {
         this.setState({
             authors: AuthorStore.getAllAuthors() 
         });
