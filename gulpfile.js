@@ -88,4 +88,4 @@ gulp.task('watch', gulp.series(function() {
     gulp.watch(config.paths.css, gulp.series('css'));
 }));
 
-gulp.task('default', gulp.parallel('html', 'js', 'css', 'lint', 'images', 'open', 'watch'));
+gulp.task('default', gulp.parallel('html', 'js', 'css', 'images', 'open', 'watch'));

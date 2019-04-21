@@ -19,10 +19,11 @@
     "gulp-eslint": "^5.0.0",
     "gulp-open": "^3.0.1",
     "jquery": "^3.4.0",
+    "lodash": "^4.17.11",
     "react": "^0.13.3",
+    "react-dom": "^16.0.0",
     "react-router": "^0.13.3",
     "reactfy": "^0.1.1",
-    "vinyl-source-stream": "^2.0.0",
-    "react-dom": "^16.0.0"
+    "vinyl-source-stream": "^2.0.0"
   }
 }
