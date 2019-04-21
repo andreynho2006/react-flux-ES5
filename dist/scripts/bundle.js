@@ -46597,7 +46597,21 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
 		return {
 			authors: AuthorStore.getAllAuthors()
 		};
-	},
+    },
+
+    componentWillMount: function() {
+        AuthorStore.addChangeListener(this._onChange);
+    },
+
+    componentWillUnmount() {
+        AuthorStore.removeChangeListener(this._onChange);
+    },
+    
+    _onChange() {
+        this.setstate({
+            authors: AuthorStore.getAllAuthors() 
+        });
+    },
 
 	render: function() {
 		return (
