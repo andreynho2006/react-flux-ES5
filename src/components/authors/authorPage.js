@@ -12,7 +12,7 @@ var AuthorPage = React.createClass({
     },
 
     componentDidMount: function() {
-        if(this.isMounted() {
+        if(this.isMounted()) {
             this.setState({ authors: AuthorApi.getAllAuthors() });
         }
     },
