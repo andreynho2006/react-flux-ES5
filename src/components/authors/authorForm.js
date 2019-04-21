@@ -4,6 +4,7 @@ var React = require('react');
 
 var AuthorForm = React.createClass({
 
+
     render: function() {
         return (
             <form>
@@ -14,7 +15,8 @@ var AuthorForm = React.createClass({
                         className="form-control"
                         placeholder="First name"
                         ref="FirstName"
-                        value="" />
+                        onChange={this.props.onChange}
+                        value={this.props.authorForm.firstName} />
                 <br />
 
                 <label htmlfor="lastName">Last Name</label>
@@ -23,7 +25,8 @@ var AuthorForm = React.createClass({
                         className="form-control"
                         placeholder="Lastt name"
                         ref="LastName"
-                        value="" />
+                        onChange={this.props.onChange}
+                        value={this.props.author.lastName} />
                 <br />
 
                 <input type="submit" value="Save" className="btn btn-defaut" />
